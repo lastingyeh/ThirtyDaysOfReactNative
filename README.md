@@ -30,27 +30,19 @@
 
   3.1 MainView
 
-    ios
-
-    android
+![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/mainView.gif)
 
   3.2 Day1
 
-    ios
-
-    android
+![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day1.gif)
 
   3.3 Day2 
 
-    ios
-
-    android
+![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day2.gif)
 
   3.4 Day3
 
-    ios
-
-    android
+![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day3.gif)
 
 4. update Day3...and will keeping writes
     
