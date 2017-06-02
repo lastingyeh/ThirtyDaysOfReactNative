@@ -1,8 +1,8 @@
-#### Exercise for ThirtyDaysOfReactNative demo
+## Exercise for ThirtyDaysOfReactNative demo
 
-1. project structure
+### project structure
 
-  src/
+    src/
   
       index.js (entry application)
       
@@ -10,7 +10,7 @@
 
       utile.js (device size,api,and others for common functions)
 
-  src/view/
+    src/view/
 
       Day1/index.js 
 
@@ -18,34 +18,36 @@
 
       Day3/index.js
 
-2. modify
+### Modify
 
-  2.1 'navigator' replaced with react-navigation
+    2.1 'navigator' replaced with react-navigation
 
-  2.2 adjust styles to meet android && ios devices (now just for emulator(Nex6,iPhone 6s))
+    2.2 adjust styles to meet android && ios devices (now just for emulator(Nex6,iPhone 6s))
 
-  2.3 divide into js files from single js file
+    2.3 divide into js files from single js file
 
-3. demo
+    2.4 correct navigation action behaviour
 
-  3.1 MainView
+### demo
 
-![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/mainView.gif)
+    3.1 MainView
 
-  3.2 Day1
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/mainView.gif)
 
-![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day1.gif)
+    3.2 Day1
 
-  3.3 Day2 
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day1.gif)
 
-![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day2.gif)
+    3.3 Day2 
 
-  3.4 Day3
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day2.gif)
 
-![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day3.gif)
+    3.4 Day3
 
-4. update Day3...and will keeping writes
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day3.gif)
+
+### update Day3...and will keeping writes
     
-5. refs by and thanks
+### refs by and thanks
 
-  https://github.com/fangwei716/30-days-of-react-native
+    https://github.com/fangwei716/30-days-of-react-native
