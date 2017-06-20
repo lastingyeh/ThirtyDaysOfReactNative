@@ -18,6 +18,12 @@
 
       Day3/index.js
 
+      Day4/index.js
+
+      Day5/index.js
+
+      Day6/index.js
+
 ### Modify
 
     2.1 'navigator' replaced with react-navigation
@@ -45,6 +51,46 @@
     3.4 Day3
 
   ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day3.gif)
+
+    3.5 Day4
+
+    To be update
+
+    3.6 Day5
+
+    ##### step for map setup
+
+      3.6.1 npm i --save react-native-maps 
+
+      3.6.2 import MapView from 'react-native-maps'
+
+      3.6.3 rnpm link
+
+      3.6.4 for android use
+
+        3.6.4.1 apply for Android key - 
+        
+                get API_KEY from https://developers.google.com/maps/documentation/android-api/signup
+
+        3.6.4.2 Added API Key in android/app/src/main/AndroidManifest.xml
+
+                <meta-data
+                  android:name="com.google.android.geo.API_KEY"
+                  android:value="your-api-key"/>
+
+        3.6.4.3 android/app/src/main/java/com/thirtydaysofreactnative/MainApplication.
+        
+                import com.airbnb.android.react.maps.MapsPackage;
+
+                @Override
+                protected List<ReactPackage> getPackages() {
+                  return Arrays.<ReactPackage>asList(
+                      new MapsPackage(),
+                      new MainReactPackage()
+                  );
+                }
+
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day5.gif)
 
 ### update Day3...and will keeping writes
     

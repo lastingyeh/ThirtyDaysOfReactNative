@@ -2,6 +2,9 @@
 import Day1 from './view/Day1';
 import Day2 from './view/Day2';
 import Day3 from './view/Day3';
+import Day4 from './view/Day4';
+import Day5 from './view/Day5';
+import Day6 from './view/Day6';
 
 // export const days = [
 //   {
@@ -45,7 +48,7 @@ export const navigationDays = {
     size: 48,
     color: '#ff856c',
     hideNav: false,
-    barStyle:'default'
+    barStyle: 'default'
   },
   Day2: {
     screen: Day2,
@@ -55,7 +58,7 @@ export const navigationDays = {
     size: 60,
     color: '#90bdc1',
     hideNav: true,
-    barStyle:'light-content'
+    barStyle: 'light-content'
   },
   Day3: {
     screen: Day3,
@@ -65,6 +68,36 @@ export const navigationDays = {
     size: 50,
     color: '#2aa2ef',
     hideNav: true,
-    barStyle:'default'
+    barStyle: 'default'
+  },
+  Day4: {
+    screen: Day4,
+    navigationOptions: { title: 'cocoapods' },
+    isFA: true,
+    icon: 'contao',
+    size: 50,
+    color: '#FF9A05',
+    hideNav: false,
+    barStyle: 'default'
+  },
+  Day5: {
+    screen: Day5,
+    navigationOptions: { title: 'find my location' },
+    isFA: false,
+    icon: 'md-pin',
+    size: 50,
+    color: '#00D204',
+    hideNav: true,
+    barStyle: 'default'
+  },
+  Day6: {
+    screen: Day6,
+    navigationOptions: { title: 'Spotify' },
+    isFA: true,
+    icon: 'spotify',
+    size: 50,
+    color: '#777',
+    hideNav: true,
+    barStyle: 'default'
   }
 };
