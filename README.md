@@ -92,7 +92,11 @@
 
   ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day5.gif)
 
-### update Day3...and will keeping writes
+    3.5 Day4
+
+    To be update
+
+    
     
 ### refs by and thanks
 
