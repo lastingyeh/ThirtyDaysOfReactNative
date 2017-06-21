@@ -6,8 +6,10 @@ import {
   PermissionsAndroid,
   Dimensions,
   TouchableHighlight,
-  ScrollView
+  ScrollView,
+  PanResponder
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import MapView, { MAP_TYPES } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GeoCoder from 'react-native-geocoder';
@@ -27,7 +29,7 @@ const GEOLOCATION_OPTS = {
   maximumAge: 1000
 };
 
-const mapMarkers = [];
+// const mapMarkers = [];
 
 class Map extends Component {
   constructor(props) {
@@ -40,7 +42,9 @@ class Map extends Component {
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA
       },
-      markers: []
+      markers: [],
+      mapCanScroll: true,
+      gestureEnable: true
     };
   }
 
@@ -56,6 +60,58 @@ class Map extends Component {
     } else {
       this.watchLocation();
     }
+  }
+
+  componentWillMount() {
+    // this._panResponder = PanResponder.create({
+    //   onStartShouldSetPanResponder: (evt, gestureState) => true,
+    //   onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+    //   onMoveShouldSetPanResponder: (evt, gestureState) => true,
+    //   onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+    //   onPanResponderGrant: (evt, gestureState) => {
+    //     console.log('onPanResponderGrant', gestureState.moveX);
+    //   },
+    //   onPanResponderMove: (evt, gestureState) => {
+    //     console.log('onPanResponderMove', gestureState.moveX);
+    //     if (gestureState.moveX < 50) {
+    //       this.setState({ mapCanScroll: false });
+    //     } else {
+    //       this.setState({ mapCanScroll: true });
+    //     }
+    //   },
+    //   onPanResponderTerminate: (evt, gestureState) => {
+    //     console.log('onPanResponderTerminate');
+    //   },
+    //   onPanResponderRelease: (evt, gestureState) => {
+    //     console.log('onPanResponderRelease');
+    //   }
+    // });
+
+    this._gestureHandlers = {
+      onStartShouldSetResponder: () => true,
+      onMoveShouldSetResponder: () => true,
+      onResponderGrant: e => {
+        console.log('onResponderGrant', e.nativeEvent.locationX);
+
+        if (e.nativeEvent.locationX < 20) {
+          console.log(this.map);
+          // this.map.setNativeProps({ scrollEnabled: false });
+          this.setState({ mapCanScroll: false });
+        } else {
+          // this.map.setNativeProps({ scrollEnabled: true });
+          this.setState({ mapCanScroll: true });
+        }
+      },
+      onResponderMove: e => {
+        console.log('onResponderMove', e.nativeEvent);
+      },
+      onResponderRelease: () => {
+        console.log('onResponderRelease');
+        this.setState({ mapCanScroll: true });
+      }
+    };
+
+    this.setState({ gestureEnable: true });
   }
 
   componentWillUnmount() {
@@ -96,11 +152,14 @@ class Map extends Component {
 
         const { lat, lng } = res[0].position;
 
-        mapMarkers.push({
-          latitude: lat,
-          longitude: lng,
-          formattedAddress: res[0].formattedAddress
-        });
+        const mapMarkers = [
+          ...this.state.markers,
+          {
+            latitude: lat,
+            longitude: lng,
+            formattedAddress: res[0].formattedAddress
+          }
+        ];
 
         this.setState({
           region: {
@@ -131,73 +190,114 @@ class Map extends Component {
       if (res && res[0]) {
         const { position, formattedAddress } = res[0];
 
-        mapMarkers.push({
-          latitude,
-          longitude,
-          formattedAddress
-        });
+        const mapMarkers = [
+          ...this.state.markers,
+          {
+            latitude,
+            longitude,
+            formattedAddress: formattedAddress
+          }
+        ];
+
+        this.setState({ markers: mapMarkers, gestureEnable: true });
       }
     } catch (e) {
       console.log(e);
     }
-
-    this.setState({ markers: mapMarkers });
   };
 
   onMarkerPress = e => {
     e.stopPropagation();
+    this.setState({ gestureEnable: false });
+  };
+
+  goBack = routeName => {
+    const actionToDispatch = NavigationActions.reset({
+      index: 0,
+      key: null,
+      actions: [NavigationActions.navigate({ routeName })]
+    });
+    this.props.navigation.dispatch(actionToDispatch);
   };
 
   // render component
   render() {
-    console.log('render', this.state.markers);
     const { latitude, longitude } = this.state.region;
+
+    const enableGesture = this.state.gestureEnable
+      ? this._gestureHandlers
+      : null;
+
     return (
       <View style={styles.container}>
-        <MapView
-          provider={this.props.provider}
-          ref={ref => (this.map = ref)}
-          style={styles.map}
-          mapType="standard"
-          initialRegion={this.state.region}
-          loadingEnabled
-          onPress={e => this.onMapPress(e)}
-        >
-          {this.state.markers.map((marker, index) =>
-            <MapView.Marker
-              key={index}
-              coordinate={marker}
-              onPress={e => this.onMarkerPress(e)}
-            >
-              <MapView.Callout>
-                <ScrollView horizontal>
-                  <View style={{ alignItems: 'center', flexDirection: 'row' }}>
-                    <Icon
-                      size={26}
-                      name="ios-flag"
-                      style={{ color: 'green' }}
-                    />
-                    <Text style={{ marginHorizontal: 10 }}>
-                      {marker.formattedAddress}
-                    </Text>
-                  </View>
 
-                </ScrollView>
+        <View style={styles.map} {...enableGesture}>
+          <MapView
+            provider={this.props.provider}
+            ref={ref => (this.map = ref)}
+            style={styles.map}
+            mapType="standard"
+            initialRegion={this.state.region}
+            loadingEnabled
+            onPress={e => this.onMapPress(e)}
+            scrollEnabled={this.state.mapCanScroll}
+          >
+            {this.state.markers.map((marker, index) =>
+              <MapView.Marker
+                key={index}
+                coordinate={marker}
+                onPress={e => this.onMarkerPress(e)}
+              >
+                <MapView.Callout
+                  onPress={() => console.log('windowInfo trigger')}
+                >
+                  <ScrollView horizontal>
+                    <View
+                      style={{ alignItems: 'center', flexDirection: 'row' }}
+                    >
+                      <Icon
+                        size={26}
+                        name="ios-flag"
+                        style={{ color: 'green' }}
+                      />
+                      <Text style={{ marginHorizontal: 10 }}>
+                        {marker.formattedAddress}
+                      </Text>
+                    </View>
 
-              </MapView.Callout>
-            </MapView.Marker>
-          )}
-        </MapView>
-        <TouchableHighlight
-          underlayColor="#00bd03"
-          style={styles.btn}
-          onPress={() => this.gotoLocation()}
-        >
-          <Text style={styles.btnText}>
-            <Icon size={18} name="md-navigate" />
-            Go To Taipei City
-          </Text>
-        </TouchableHighlight>
+                  </ScrollView>
+
+                </MapView.Callout>
+              </MapView.Marker>
+            )}
+          </MapView>
+        </View>
+
+        <View style={styles.btnView}>
+          <TouchableHighlight
+            underlayColor="#00bd03"
+            style={styles.btn}
+            onPress={() => this.gotoLocation()}
+          >
+            <Text style={styles.btnText}>
+              <Icon size={18} name="md-navigate" />
+              Go To Taipei City
+            </Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight
+            underlayColor="#00bd03"
+            style={styles.btn}
+            onPress={() => this.goBack('MainView')}
+            //onPress={() => this.props.navigation.goBack(null)}
+          >
+            <Text style={styles.btnText}>
+              <Icon size={18} name="ios-home" />
+              Back To MainView
+            </Text>
+          </TouchableHighlight>
+        </View>
+
       </View>
     );
   }

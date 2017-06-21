@@ -92,11 +92,25 @@
 
   ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day5.gif)
 
-    3.5 Day4
+    3.7 Day6
 
     To be update
 
+    3.8 Day7 
+
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day7.gif)
+
+    3.9 Day8
+
+    #### update list
     
+    3.9.1 use DrawerNavigator instead of original View
+
+    3.9.2 menu items includes Day1,Day2,Day3,Day5
+
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day8.gif)
+
+
     
 ### refs by and thanks
 

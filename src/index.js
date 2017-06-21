@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Platform } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 // screens
@@ -26,7 +26,8 @@ const ThirtyDaysOfReactNative = StackNavigator(
       } else {
         StatusBar.setBarStyle(navigationDays[routeName]['barStyle']);
       }
-    }
+    },
+    mode: Platform.OS === 'ios' ? 'modal' : 'card'
   }
 );
 
