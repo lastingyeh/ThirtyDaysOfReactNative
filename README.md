@@ -38,19 +38,19 @@
 
     3.1 MainView
 
-  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/mainView.gif)
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/mainView.gif)
 
     3.2 Day1
 
-  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day1.gif)
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day1.gif)
 
     3.3 Day2 
 
-  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day2.gif)
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day2.gif)
 
     3.4 Day3
 
-  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day3.gif)
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day3.gif)
 
     3.5 Day4
 
@@ -90,7 +90,7 @@
                   );
                 }
 
-  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day5.gif)
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day5.gif)
 
     3.7 Day6
 
@@ -98,7 +98,7 @@
 
     3.8 Day7 
 
-  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day7.gif)
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day7.gif)
 
     3.9 Day8
 
@@ -108,7 +108,7 @@
 
     3.9.2 menu items includes Day1,Day2,Day3,Day5
 
-  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/Day8.gif)
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day8.gif)
 
 
     
