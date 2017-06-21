@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     margin: 5
   },
   map: {
-    width: Util.size.width,
+    width: Util.size.width * 0.99,
     height: Util.size.height / 10 * 8
   },
   btnView: {
