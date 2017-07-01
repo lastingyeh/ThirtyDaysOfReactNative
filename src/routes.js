@@ -7,6 +7,7 @@ import Day5 from './view/Day5';
 import Day6 from './view/Day6';
 import Day7 from './view/Day7';
 import Day8 from './view/Day8';
+import Day9 from './view/Day9';
 
 // export const days = [
 //   {
@@ -147,6 +148,20 @@ export const navigationDays = {
     icon: 'google',
     size: 50,
     color: '#4285f4',
+    hideNav: true,
+    barStyle: 'default'
+  },
+  Day9: {
+    screen: Day9,
+    navigationOptions: {
+      title: 'Twitter Parallax View',
+      gesturesEnabled: false,
+      header: null
+    },
+    isFA: true,
+    icon: 'twitter-square',
+    size: 50,
+    color: '#2aa2ef',
     hideNav: true,
     barStyle: 'default'
   }

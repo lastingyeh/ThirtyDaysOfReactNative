@@ -231,7 +231,7 @@ class Map extends Component {
     return (
       <View style={styles.container}>
 
-        <View style={styles.map} {...enableGesture}>
+        <View style={styles.mapView} {...enableGesture}>
           <MapView
             provider={this.props.provider}
             ref={ref => (this.map = ref)}
@@ -260,7 +260,7 @@ class Map extends Component {
                         name="ios-flag"
                         style={{ color: 'green' }}
                       />
-                      <Text style={{ marginHorizontal: 10 }}>
+                      <Text>
                         {marker.formattedAddress}
                       </Text>
                     </View>
@@ -273,7 +273,6 @@ class Map extends Component {
           </MapView>
         </View>
 
-        <View style={styles.btnView}>
           <TouchableHighlight
             underlayColor="#00bd03"
             style={styles.btn}
@@ -296,7 +295,6 @@ class Map extends Component {
               Back To MainView
             </Text>
           </TouchableHighlight>
-        </View>
 
       </View>
     );

@@ -7,13 +7,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   mapView: {
-    width: Util.size.width,
+    // width: Util.size.width,
     height: Util.size.height / 10 * 8,
-    margin: 5
+    paddingHorizontal: 5
   },
   map: {
-    width: Util.size.width * 0.99,
-    height: Util.size.height / 10 * 8
+    width: Util.size.width * 0.97,
+    height: Util.size.height
+    //marginHorizontal: 10
   },
   btnView: {
     width: Util.size.width,
@@ -21,11 +22,13 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: '#00a803',
-    height: 40,
+    height: Util.size.height * 0.2 * 0.25,
+    width:250,
     borderWidth: Util.pixel,
     borderColor: '#009302',
     borderRadius: 4,
     justifyContent: 'center',
+    opacity: 0.5,
     margin: 10
     //alignItems: 'center'
   },

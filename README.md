@@ -110,6 +110,29 @@
 
   ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day8.gif)
 
+    3.10 Day9
+
+    #### update list *see Day9/modify
+
+    3.9.1 BasicParallaxView instead of ScrollView and PanResponder respond
+
+      3.9.1.1 use react-native-parallax-scroll-view
+
+      3.9.1.2 add refreshControl
+    
+    3.9.2 use ListView 
+
+      3.9.2.1 add item 
+
+      3.9.2.2 scroll to targetScorll positioin
+
+    3.9.3 use self-make 'SegmentControl' to use in cross-platform
+
+    3.9.4 at ios platform, add self-make 'FloatBackButton' to get back
+
+    3.9.5 issues waits to resolve 'as scroll to top stickyHeader,it can't fixed the listview header..
+
+  ![alt tag](https://github.com/lastingyeh/ThirtyDaysOfReactNative/blob/master/demo/Day9.gif)
 
     
 ### refs by and thanks
