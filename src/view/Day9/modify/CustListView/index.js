@@ -28,8 +28,8 @@ class CustListView extends Component {
       <View style={{ flex: 1, justifyContent: 'center' }}>
         <SegmentControl
           selectedColors={{ backColor: '#0055ff', textColor: '#fff' }}
-          fontStyle={{ fontSize: 14 }}
-          contentStyle={{ width: 110, height: 23 }}
+          fontStyle={{ fontSize: 12 }}
+          contentStyle={{ width: 110, height: 20 }}
           options={['推文', '媒體', '喜歡']}
           onSelectionIndex={(index, opt) => {
             alert(opt);
@@ -145,7 +145,7 @@ class CustListView extends Component {
     return (
       <ListView
         {...this.props}
-        // ref={this.props.listViewRef}
+        ref={this.props.custRef}
         dataSource={dataSource}
         renderFooter={this._renderFooter}
         renderHeader={this._renderHeader}
